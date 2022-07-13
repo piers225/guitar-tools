@@ -1,0 +1,11 @@
+@import '../App.scss';
+
+.content
+{
+    height : calc(100vh - $headerHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}

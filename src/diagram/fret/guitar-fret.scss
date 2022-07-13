@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "sass:map";
+
+$frets: 24;
+$scaleLenghtRemaining : 100;
+$fretLenghts: (0 : $scaleLenghtRemaining);
+
+@for $i from 1 through $frets {
+    $value : map.get($fretLenghts, $i - 1) - math.div( map.get($fretLenghts, $i - 1 ) , 17.817 );
+    $fretLenghts : map.merge($fretLenghts, ( $i : $value ));
+} 
+
+
+@each $key, $value in $fretLenghts {
+    .fret-#{$key} {
+        width: percentage( math.div( $value, 1000 ) ) 
+    }
+  } 
+   
