@@ -13,5 +13,19 @@ let chronomaticScale
     : (Natural | [Sharp, Flat])[]  
     = [ 'a' , ['a♯', 'b♭'], 'b' , 'c' ,  ['c♯', 'd♭'], 'd' ,  ['d♯', 'e♭'], 'e' , 'f' ,  ['f♯', 'g♭'], 'g' , ['g♯', 'a♭']];
 
-export { chronomaticScale }
+let chronomaticScaleSharps : (Natural | Sharp)[]
+    = [ 'a' , 'a♯', 'b' , 'c', 'c♯', 'd', 'd♯', 'e' , 'f', 'f♯', 'g' , 'g♯' ];
+
+
+let chronomaticScaleFlats : (Natural | Flat)[]  
+    =  ['a♭', 'a' , 'b♭', 'b' , 'c', 'd♭', 'd', 'e♭', 'e' , 'f', 'g♭', 'g' ];
+
+
+export { 
+    chronomaticScale,
+    chronomaticScaleSharps,
+    chronomaticScaleFlats
+
+}
+
 

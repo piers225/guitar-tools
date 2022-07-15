@@ -1,19 +1,31 @@
 @use "sass:math";
 @use "sass:map";
 
-$frets: 24;
-$scaleLenghtRemaining : 100;
-$fretLenghts: (0 : $scaleLenghtRemaining);
+@function fretLenghts() {
+    $frets: 24;
+    $scaleLenghtRemaining : 100;
+    $fretLenghts: (0 : $scaleLenghtRemaining);
 
-@for $i from 1 through $frets {
-    $value : map.get($fretLenghts, $i - 1) - math.div( map.get($fretLenghts, $i - 1 ) , 17.817 );
-    $fretLenghts : map.merge($fretLenghts, ( $i : $value ));
-} 
+    @for $i from 1 through $frets {
+        $value : map.get($fretLenghts, $i - 1) - math.div( map.get($fretLenghts, $i - 1 ) , 17.817 );
+        $fretLenghts : map.merge($fretLenghts, ( $i : $value ));
+    } 
+
+    @return $fretLenghts;
+}
 
 
-@each $key, $value in $fretLenghts {
+@each $key, $value in fretLenghts() {
     .fret-#{$key} {
         width: percentage( math.div( $value, 1000 ) ) 
     }
-  } 
-   
+} 
+
+.fret {
+    background-image: url('../../../public/string.gif');
+    background-size: 1px;
+    background-repeat: repeat-x;
+    background-position: center center;
+
+    border-left : 1px #000 solid; 
+}

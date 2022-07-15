@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { ChronomaticScaleNote } from '../../model/notes'
+import { IKneckContext, KneckContext } from '../guitar-neck-diagram';
 import './guitar-fret.scss'
 
 interface IGuitarFretProp {
@@ -8,9 +10,11 @@ interface IGuitarFretProp {
 
 export function GuitarFret(prop : IGuitarFretProp) {
 
+    const context = useContext(KneckContext);
+
     return (
-        <div className={`fret-${prop.fretNumber}`} >
-            { prop.fretNumber }
+        <div className={`fret fret-${prop.fretNumber}`} >
+            
         </div>
     )
-}
+} 

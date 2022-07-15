@@ -6,4 +6,8 @@ $scaleLenght : 100;
     flex-direction: row;
     height: 40px;
     width: 75vw;
+
+    :first-child {
+        border-left: 2px #000 solid;
+    }
 }
