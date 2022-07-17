@@ -5,16 +5,16 @@ import './guitar-neck-diagram.scss';
 import { GuitarString } from './string/guitar-string';
 import { GuitarStringHeader } from './string/header/guitar-string-header';
 
-let guitarStrings : ChronomaticScaleNote[] = ['e', 'a', 'd', 'g', 'b', 'e'];
+let guitarStrings : ChronomaticScaleNote[] = ['e', 'b', 'g', 'd', 'a', 'e'];
 
 export interface IKneckContext {
     action : {
-        setNeckNote : (newNote : string) => void,
-        setNeckChord : (newChord : string) => void
+        setNeckNote : (newNote : ChronomaticScaleNote) => void | undefined,
+        setNeckChord : (newChord : ChronomaticScaleNote) => void | undefined
     },
     state : {
-        kneckNote : string,
-        kneckChord : string
+        kneckNote : ChronomaticScaleNote | undefined,
+        kneckChord : ChronomaticScaleNote | undefined
     }
 } 
 
@@ -22,8 +22,8 @@ export let KneckContext = createContext<IKneckContext | undefined>(undefined);
 
 export function NeckDiagram() {
 
-    const [kneckNote, setNeckNote] = useState<string>('');
-    const [kneckChord, setNeckChord] = useState<string>('');
+    const [kneckNote, setNeckNote] = useState<ChronomaticScaleNote>();
+    const [kneckChord, setNeckChord] = useState<ChronomaticScaleNote>();
 
     const value : IKneckContext = useMemo(() => ({
         action : {
