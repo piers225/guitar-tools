@@ -7,7 +7,10 @@ $scaleLenght : 100;
     height: 40px;
     width: 75vw;
 
-    :first-child {
-        border-left: 2px #000 solid;
+    .string-root {
+        width: 25px;
+        line-height: 33px;
+        font-weight: bold;
     }
+    
 }

@@ -21,6 +21,8 @@
     }
 } 
 
+
+
 .fret {
     background-image: url('../../../public/string.gif');
     background-size: 1px;
@@ -28,4 +30,22 @@
     background-position: center center;
 
     border-left : 1px #000 solid; 
+
+    line-height: 33px;
+}
+
+.open-fret {
+    width:37px;
+}
+
+.fret-note {
+    width:28px;
+    height:33px;
+    border-radius:50px;
+    font-size:18px;
+    color:#fff;
+    text-align:center;
+    background:rgb(146, 36, 36);
+    border: 0px;
+    display: inline-block;
 }

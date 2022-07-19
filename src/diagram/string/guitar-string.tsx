@@ -11,6 +11,7 @@ export function GuitarString(prop : IGuitarStringProp) {
 
     return (
         <div className="guitar-string">
+            <div className='string-root'> { prop.stringRoot.toUpperCase() }</div>
             {
                 everyFret
                     .map((m) => 
