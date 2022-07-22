@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Guitar Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple react app built using  [Create React App](https://github.com/facebook/create-react-app). 
+ - Display notes on guitar fret 
+ - Display major and minor scales on guitar fret 
 
 ## Available Scripts
 
