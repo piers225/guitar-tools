@@ -1,6 +1,6 @@
 import { useContext, useMemo } from 'react';
 import { chronomaticScale, chronomaticScaleFlats, ChronomaticScaleNote, ChronomaticScaleNoteFlat, ChronomaticScaleNoteSharp, chronomaticScaleSharps } from '../../model/notes'
-import { intervalToneLookup, scaleIntervalLookup, scaleType } from '../../model/scale';
+import { intervalToneLookup, scaleIntervalLookup, ScaleType } from '../../model/scale';
 import { KneckContext } from '../guitar-neck-diagram';
 import './guitar-fret.scss'
 
@@ -19,7 +19,7 @@ function findFretNoteFlat(string : ChronomaticScaleNoteFlat, fret : number) : Ch
      return chronomaticScaleFlats[(index + fret) % chronomaticScaleFlats.length];
 }
 
-function findNotesForScale(scale : scaleType,  note : ChronomaticScaleNote ) : ChronomaticScaleNote[] {
+function findNotesForScale(scale : ScaleType,  note : ChronomaticScaleNote ) : ChronomaticScaleNote[] {
     const intervals = scaleIntervalLookup[scale];
     const startPosition = chronomaticScale.findIndex(t => Array.isArray(t) ? t.includes(note as any) : t === note)  + 1;
     return intervals.map((_, index) => {
@@ -38,7 +38,7 @@ export function GuitarFret(prop : IGuitarFretProp) {
     
     const isSelectedNote = useMemo(() => {
         if (context?.state.kneckScale) {
-            return findNotesForScale('minor', context?.state.kneckScale).includes(fretNote);
+            return findNotesForScale(context.state.kneckScale.scale, context?.state.kneckScale.rootNote).includes(fretNote);
         }
         return [context?.state.kneckNote, ].includes(fretNote);
     }, [context?.state]);

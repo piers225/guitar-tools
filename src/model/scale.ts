@@ -7,7 +7,8 @@ let minorScaleInterval : interval[] = ['tone', 'semitone', 'tone', 'tone', 'semi
 
 type minorScale = 'minor';
 type majorScale = 'major';
-export type scaleType = minorScale | majorScale;
+
+export type ScaleType = minorScale | majorScale;
 
 type minorScalesFlat = `${ChronomaticScaleNoteFlat} ${minorScale}`;
 type minorScalesSharp = `${ChronomaticScaleNoteSharp} ${minorScale}`;
@@ -22,7 +23,7 @@ let allSharpMinorScales : minorScalesSharp[] = ['a minor', 'a♯ minor', 'b mino
 let allFlatMajorScales : majorScalesFlat[] = ['a♭ major','a major', 'b♭ major', 'b major', 'c major', 'd♭ major', 'd major', 'e♭ major', 'e major', 'f major', 'g♭ major', 'g major']
 
 let scaleIntervalLookup : {
-    [key in scaleType] : interval[]
+    [key in ScaleType] : interval[]
 } = {
     'major' : majorScaleInterval,
     'minor' : minorScaleInterval
@@ -35,11 +36,14 @@ let intervalToneLookup : {
     'tone' : 2
 } as const;
 
+let allScales : ScaleType[]  = ['major', 'minor'];
+
 export {
     allFlatMinorScales,
     allSharpMajorScales,
     allSharpMinorScales,
     allFlatMajorScales,
     scaleIntervalLookup,
-    intervalToneLookup
+    intervalToneLookup,
+    allScales
 }
