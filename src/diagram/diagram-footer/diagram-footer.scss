@@ -1,64 +1,76 @@
 
 
-.guitar-neck-diagram {
+.guitar-neck-footer {
+
 
     display: flex;
     flex-direction: row;
-    margin-top : 10px;
 
-    border : 1px solid #999;
-    border-radius: 25px;
-    background-color: #eee;
+    .guitar-neck-input {
 
-    .userInput {
-        padding : 10px;
-        padding-right: 30px;
+        display: flex;
+        flex-direction: row;
+        margin : 10px;
+    
+        border : 1px solid #999;
+        border-radius: 25px;
+        background-color: #eee;
+    
+        .userInput {
+            padding : 10px;
+            padding-right: 30px;
+    
+            .choose-scale {
+    
+                display: flex;
+                flex-direction: row;
+    
+                .choose-scale-type {
+                    padding : 10px;
+                }
+    
+                .choose-scale-root {
+                    padding : 10px;
+                }
+            } 
 
-        .choose-scale {
-
-            display: flex;
-            flex-direction: row;
-
-            .choose-scale-type {
+            .choose-sharp-flat {
                 padding : 10px;
             }
-
-            .choose-scale-root {
-                padding : 10px;
+    
+            .choose-note {
+                padding:10px;
             }
-        }
-
-        .choose-note {
-            padding:10px;
-        }
-
-        .option {
-
-            text-align: left;
-
-            input:checked+label {
-                background-color: #aaa;
-              }
-
-            input {
-                display: none;
-            }   
-            label {
-                padding-left:20px;
-                border-radius: 25px;
+    
+            .option {
+    
                 text-align: left;
-                background-color: #ddd;
-                display: inline-block;
-                width: 100%;
-                margin-bottom: 2px;
-                transition: 0.1s;
-
-            }
-
-            :hover {
-                background-color: #ccc;
+    
+                input:checked+label {
+                    background-color: #aaa;
+                  }
+    
+                input {
+                    display: none;
+                }   
+                label {
+                    padding-left:20px;
+                    border-radius: 25px;
+                    text-align: left;
+                    background-color: #ddd;
+                    display: inline-block;
+                    width: 100%;
+                    margin-bottom: 2px;
+                    transition: 0.1s;
+    
+                }
+    
+                :hover {
+                    background-color: #ccc;
+                }
             }
         }
+    
     }
 
 }

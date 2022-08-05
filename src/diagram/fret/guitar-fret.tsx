@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { chronomaticScale, chronomaticScaleFlats, ChronomaticScaleNote, ChronomaticScaleNoteFlat, ChronomaticScaleNoteSharp, chronomaticScaleSharps } from '../../model/notes'
 import { intervalToneLookup, scaleIntervalLookup, ScaleType } from '../../model/scale';
-import { KneckContext } from '../guitar-neck-diagram';
+import { KneckContext, SettingsContext } from '../guitar-neck-diagram';
 import './guitar-fret.scss'
 
 interface IGuitarFretProp {
@@ -33,15 +33,19 @@ function findNotesForScale(scale : ScaleType,  note : ChronomaticScaleNote ) : C
 export function GuitarFret(prop : IGuitarFretProp) {
 
     const context = useContext(KneckContext);
+    const settingsContext = useContext(SettingsContext);
 
-    const fretNote = useMemo(() => findFretNoteFlat(prop.stringRoot as ChronomaticScaleNoteFlat, prop.fretNumber), []);
+    const fretNote = useMemo(() => {
+            const findFretFunction = settingsContext?.state.symbol === '♭' ? findFretNoteFlat : findFretNoteSharpe;
+            return findFretFunction(prop.stringRoot as any, prop.fretNumber);
+        }, [settingsContext?.state.symbol]);
     
     const isSelectedNote = useMemo(() => {
         if (context?.state.kneckScale) {
             return findNotesForScale(context.state.kneckScale.scale, context?.state.kneckScale.rootNote).includes(fretNote);
         }
-        return [context?.state.kneckNote, ].includes(fretNote);
-    }, [context?.state]);
+        return [context?.state.kneckNote].includes(fretNote);
+    }, [context?.state, settingsContext?.state.symbol]);
 
     return (
         <div className={ prop.fretNumber === 0 ? `open-fret` : `fret fret-${prop.fretNumber}`} >
