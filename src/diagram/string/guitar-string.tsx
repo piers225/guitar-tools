@@ -15,7 +15,7 @@ export function GuitarString(prop : IGuitarStringProp) {
             {
                 everyFret
                     .map((m) => 
-                        <GuitarFret key={m} stringRoot={prop.stringRoot}  fretNumber={m} ></GuitarFret>)
+                        <GuitarFret key={m} stringRoot={prop.stringRoot} fretNumber={m} ></GuitarFret>)
             }
         </div>
     )

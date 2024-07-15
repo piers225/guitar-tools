@@ -1,0 +1,24 @@
+{
+    "name": "guitar-tools",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "guitar-tools",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "PKief.material-icon-theme"
+            ],
+            "settings": {
+                "files.eol": "\r\n",
+                "remote.extensionKind": {
+                    "ms-azuretools.vscode-docker": "workspace"
+                }
+            }
+        }
+    }
+}

@@ -5,8 +5,8 @@ import { KneckContext, SettingsContext } from '../guitar-neck-diagram';
 import './guitar-fret.scss'
 
 interface IGuitarFretProp {
-    stringRoot : ChronomaticScaleNote,
-    fretNumber : number;
+    readonly stringRoot : ChronomaticScaleNote,
+    readonly fretNumber : number;
 }
 
 function findFretNoteSharpe(string : ChronomaticScaleNoteSharp, fret : number) : ChronomaticScaleNoteSharp {
